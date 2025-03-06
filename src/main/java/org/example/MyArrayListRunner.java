@@ -4,6 +4,12 @@ public class MyArrayListRunner {
 
     public static void main(String[] args) {
 
+        MyArrayList<Integer> myArrayList = new MyArrayList<>();
+        for (int i = 0; i < 10000; i++) {
+            myArrayList.add(i);
+        }
+        System.out.println("Size: " + myArrayList.size());
+
         MyArrayList<String> arrayList = new MyArrayList<String>(10000);
         arrayList.add("яблоко");
         arrayList.add("банан");
@@ -36,8 +42,6 @@ public class MyArrayListRunner {
         for (int i = 0; i < integerMyArrayList.size(); i++) {
             System.out.println(integerMyArrayList.getIndex(i));
         }
-
-
 
 
 //        System.out.println(arrayList.getIndex(2));

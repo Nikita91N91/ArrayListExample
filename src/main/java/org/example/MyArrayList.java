@@ -10,21 +10,30 @@ public class MyArrayList<T> {
         this.size = 0;
     }
 
+    public MyArrayList() {
+        this (10);
+    }
+
     /**
      * добавить элемент
      *
      * @param object элемент для добавления
      */
+//    public void add(T object) {
+//        if (size == objects.length) {
+//            // увеличить размер списка
+//            T[] newObjects = (T[]) new Object[objects.length * 2];
+//            System.arraycopy(objects, 0, newObjects, 0, objects.length);
+//            objects = newObjects;
+//        }
+//        objects[size] = object;
+//        size++;
+//    }
+    // Перегрузка метода для добавления элемента в конец
     public void add(T object) {
-        if (size == objects.length) {
-            // увеличить размер списка
-            T[] newObjects = (T[]) new Object[objects.length * 2];
-            System.arraycopy(objects, 0, newObjects, 0, objects.length);
-            objects = newObjects;
-        }
-        objects[size] = object;
-        size++;
+        addIndex(size, object);
     }
+
 
     /**
      * добавить элемент по индексу
