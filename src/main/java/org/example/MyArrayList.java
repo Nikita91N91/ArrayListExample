@@ -19,21 +19,16 @@ public class MyArrayList<T> {
      *
      * @param object элемент для добавления
      */
-//    public void add(T object) {
-//        if (size == objects.length) {
-//            // увеличить размер списка
-//            T[] newObjects = (T[]) new Object[objects.length * 2];
-//            System.arraycopy(objects, 0, newObjects, 0, objects.length);
-//            objects = newObjects;
-//        }
-//        objects[size] = object;
-//        size++;
-//    }
-    // Перегрузка метода для добавления элемента в конец
     public void add(T object) {
-        addIndex(size, object);
+        if (size == objects.length) {
+            // увеличить размер списка
+            T[] newObjects = (T[]) new Object[objects.length * 2];
+            System.arraycopy(objects, 0, newObjects, 0, objects.length);
+            objects = newObjects;
+        }
+        objects[size] = object;
+        size++;
     }
-
 
     /**
      * добавить элемент по индексу
@@ -41,7 +36,7 @@ public class MyArrayList<T> {
      * @param index  индекс, по которому нужно добавить элемент
      * @param object элемент для добавления
      */
-    public void addIndex(int index, T object) {
+    public void add(int index, T object) {
         if (index < 0 || index > size) {
             throw new IndexOutOfBoundsException();
         }

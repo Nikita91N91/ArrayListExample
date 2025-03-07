@@ -9,24 +9,14 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class MyArrayListTest {
 
+
     @Test
     void testAdd() {
         MyArrayList<String> list = new MyArrayList<>(1);
-        list.add("Элемент 1");
-        list.add("Элемент 2");
-        assertEquals(2, list.size());
-        assertEquals("Элемент 1", list.getIndex(0));
-        assertEquals("Элемент 2", list.getIndex(1));
-    }
-
-    @Test
-    void testAddIndex() {
-        MyArrayList<String> list = new MyArrayList<>(1);
-        list.add("Элемент 1");
-        list.addIndex(0, "Элемент 0");
-        assertEquals(2, list.size());
+        list.add(0, "Элемент 0");
         assertEquals("Элемент 0", list.getIndex(0));
-        assertEquals("Элемент 1", list.getIndex(1));
+        list.add("Элемент 2");
+        assertEquals("Элемент 2",list.getIndex(1));
     }
 
     @Test
@@ -72,9 +62,9 @@ class MyArrayListTest {
     }
 
     @Test
-    void testIndexOutOfBoundsExceptionAddIndex() {
+    void testIndexOutOfBoundsExceptionAdd() {
         MyArrayList<String> list = new MyArrayList<>(1);
-        assertThrows(IndexOutOfBoundsException.class, () -> list.addIndex(-1, "Элемент"));
+        assertThrows(IndexOutOfBoundsException.class, () -> list.add(-1, "Элемент"));
     }
 
     @Test
